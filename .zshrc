@@ -71,9 +71,9 @@ ZSH_THEME="parrot"
 plugins=(
 	git
 	zsh-autosuggestions
-  zsh-syntax-highlighting
-  #dnf
-  arch
+  	zsh-syntax-highlighting
+  	#dnf
+  	archlinux
 )
 
 source $ZSH/oh-my-zsh.sh
