@@ -105,10 +105,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias icat="kitty +kitten icat"
 
+# Completion for zsh
 autoload -Uz compinit
 compinit
 
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
