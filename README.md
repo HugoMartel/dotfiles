@@ -12,3 +12,8 @@ autosuggestion: `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZS
 
 ## Vim Plugins
 TODO
+
+## Hosts ban list
+[/etc/hosts file](https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts)
+
+Thanks to this repo : https://github.com/StevenBlack/hosts
