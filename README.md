@@ -10,6 +10,8 @@ Linux dotfiles to clone when installing a new system running linux.
 ## Zsh Plugins
 autosuggestion: `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 
+syntax-highlighting: `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+
 ## Vim Plugins
 TODO
 
