@@ -1,4 +1,4 @@
-"vim-rainbow
+"vim-rainbow : https://github.com/luochen1990/rainbow
 "vim-autoclose
 "lightline
 "NERDTree
@@ -11,6 +11,8 @@ syntax on
 if !has('gui_running')
   set t_Co=256
 endif
+
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 let g:lightline = {
       \ 'colorscheme': 'onedark',
