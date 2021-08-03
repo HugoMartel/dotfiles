@@ -1,19 +1,21 @@
-"vim-rainbow
-"vim-autoclose
-"lightline
-"NERDTree
-"gitGutter
-"Polyglot
+"vim-rainbow : https://github.com/luochen1990/rainbow
+"vim-autoclose : https://github.com/Townk/vim-autoclose/
+"lightline : https://github.com/itchyny/lightline.vim
+"NERDTree : https://github.com/preservim/nerdtree
+"gitGutter : https://github.com/gitgutter/Vim
+"Polyglot : https://github.com/sheerun/vim-polyglot
 
 syntax on
-"colorscheme onedark
+"colorscheme solarized
 
 if !has('gui_running')
   set t_Co=256
 endif
 
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'solarized',
       \ }
 
 set tabstop=4
