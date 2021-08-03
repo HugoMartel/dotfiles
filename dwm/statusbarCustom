@@ -48,7 +48,7 @@ while true; do
 	fi
 
 	# date
-	DATE=$(date +"%a %D%l:%M%P %Z")
+	DATE=$(date +"%a %D %l:%M%P %Z")
 
 	# battery | date
 	#echo $BAT$DATE #DEBUG
