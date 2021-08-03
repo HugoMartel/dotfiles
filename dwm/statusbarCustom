@@ -15,6 +15,7 @@ while true; do
 		if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 20 ]
 		then
 			# NOTIFY LOW BATTERY ?+ red color?
+			notify-send -h string:fgcolor:#ff0000 "Low Battery..."
 			BAT=$BAT"/!\\ "
 		fi
 		BAT=$BAT"- | "
