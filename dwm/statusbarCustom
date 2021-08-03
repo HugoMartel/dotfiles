@@ -1,0 +1,58 @@
+#!/bin/bash
+# REQUIRES nmcli awk cat df amixer free date xsetroot
+
+while true; do
+
+	# battery
+	BAT=" $(cat /sys/class/power_supply/BAT0/capacity)% "
+	if [ $(cat /sys/class/power_supply/BAT0/status) = "Charging" ]
+	then
+		BAT=$BAT"+ | "
+	elif [ $(cat /sys/class/power_supply/BAT0/status) = "Full" ]
+	then
+		BAT=$BAT"o | "
+	else
+		if [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 20 ]
+		then
+			# NOTIFY LOW BATTERY ?+ red color?
+			BAT=$BAT"/!\\ "
+		fi
+		BAT=$BAT"- | "
+	fi
+
+	# CPU
+	CPU="Cpu: $(top -bn1 | grep 'Cpu(s)' | awk '{printf "%5.1f" ,100 - $8}')% | "
+
+	# DISK (space left on disk mounted on /)
+	DISK="Disk: $(df -hP / | awk '{ print $4 }' | tail -n 1) | "
+
+	# RAM
+	RAM="Ram: "$(free --giga -h | awk 'NR == 2 { printf "%5.5s/%-5.5s", $3, $2 }')" | "
+
+	# SWAP
+	SWAP="Swap: "$(free --giga -h | awk 'NR == 3 { printf "%5.5s/%-5.5s", $3, $2 }')" | "
+
+	# VOLUME
+	VOLUME="Vol: "$(amixer get Master | tail -1 | awk '{ printf "%6.6s", $4 }')" - "
+
+	# MICROPHONE
+	MIC="Mic: "$(amixer get Capture | tail -1 | awk '{ printf "%6.6s", $5 }')" | "
+
+	# Network
+	# Check if the device is connected
+	if [ $(nmcli -t -f DEVICE connection | head -n 1) ]
+	then
+		NETWORK="$(nmcli -t -f NAME connection | head -n 1 | cut -c 1-20) | "
+	else
+		NETWORK="No connection... | "
+	fi
+
+	# date
+	DATE=$(date +"%a %D%l:%M%P %Z")
+
+	# battery | date
+	#echo $BAT$DATE #DEBUG
+	xsetroot -name "$BAT$CPU$DISK$RAM$SWAP$VOLUME$MIC$NETWORK$DATE"
+	sleep 1s
+done
+
