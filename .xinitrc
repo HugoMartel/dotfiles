@@ -1,5 +1,4 @@
-xbindkeys &
-bgs ~/Pictures/backgrounds/f33-03-dusk.png &
+xbindkeys > /dev/null &
 statusbarCustom &
 dunst &
 exec dwm
