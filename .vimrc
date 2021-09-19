@@ -1,42 +1,39 @@
-"vim-rainbow : https://github.com/luochen1990/rainbow
-"vim-autoclose : https://github.com/Townk/vim-autoclose/
-"lightline : https://github.com/itchyny/lightline.vim
-"NERDTree : https://github.com/preservim/nerdtree
-"gitGutter : https://github.com/gitgutter/Vim
-"Polyglot : https://github.com/sheerun/vim-polyglot
+" -- Plugins --
+" https://github.com/ycm-core/YouCompleteMe    	-> Completion
+" https://github.com/mbbill/undotree		-> Visual Undo History
+" https://github.com/itchyny/lightline.vim	-> bottom status bar
+" https://github.com/luochen1990/rainbow	-> rainbow parenthesis, brackets, etc...
+" https://github.com/sheerun/vim-polyglot	-> indentation and syntax highlighting
+" not installed but could be /!\  https://github.com/tpope/vim-fugitive
 
+
+" -- Style & Theme --
 syntax on
-"colorscheme solarized
+set number relativenumber
 
-if !has('gui_running')
-  set t_Co=256
-endif
-
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
-
+" tabs
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set number relativenumber
+
+" rainbow parenthesis config
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" lightline config
 set laststatus=2
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+set noshowmode
 
-let g:clang_c_options = '-Wall -Wextra -pedantic -std=ansi'
-let g:clang_cpp_options = '-Wall -Wextra -std=c++17'
+" NerdTree config
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
-map <C-n> :NERDTreeToggle<CR>
-nnoremap <esc> :noh<return><esc>
-nnoremap <esc>^[ <esc>^[
+" -- Remaps --
+" F5 -> open undotree
+nnoremap <F5> :UndotreeToggle<CR>
+
+" NerdTree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
