@@ -1,0 +1,25 @@
+" Minimal plugin setup
+
+" 
+set nocompatible
+
+" enable syntax highlighting and plugins (for netrw)
+syntax enable
+filetype plugin on
+
+" fuzzy finder -> use :find <file>
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" NOTES: use *.ext to match every .ext file, use :b to match every previously opened file
+
+" Basic autocomplete using ^n and ^p (use ^x^n to only match words from this file)
+" documentation in |ins-completion|
+
+" FILE BROWSING
+" TODO (netrw)
+
+" SNIPPETS
+" TODO: ex HTML5, .hpp
