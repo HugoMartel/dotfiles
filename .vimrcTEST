@@ -1,11 +1,67 @@
-" Minimal plugin setup
+" INSTALLED PLUGINS:
+" - lightline: git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
+" CONSIDERED PLUGINS:
+" - NERDTree: https://github.com/preservim/nerdtree
+" - Undotree: https://github.com/mbbill/undotree
+" - fugitive: https://github.com/tpope/vim-fugitive
+" - Rainbow Parenthesis: https://github.com/luochen1990/rainbow
 
-" 
+" Do not force Vi compatibility
 set nocompatible
+
+" Read file when modified outside of Vim
+set autoread
 
 " enable syntax highlighting and plugins (for netrw)
 syntax enable
 filetype plugin on
+
+" Show matching brackets
+set showmatch
+
+" Highlight cursor line
+set cursorline
+
+" tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Show invisible chars
+set listchars=eol:¬,tab:▸\ ,trail:·
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+" Line counter, ruler & listchars
+set number
+set ruler
+set list
+
+" Autoindent & correct backspace behaviour
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set smarttab
+
+" Colorscheme
+" colorscheme ?
+
+" lightline config
+set laststatus=2
+set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'powerline',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ]
+    \ },
+    \ 'component': {
+    \   'charvaluehex': '0x%B'
+    \ },
+\ }
+
+" Hide the toolbar in GYU
+set guioptions-=T
 
 " fuzzy finder -> use :find <file>
 set path+=**
