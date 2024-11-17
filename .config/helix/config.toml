@@ -1,0 +1,17 @@
+theme = "material_darker"
+
+[editor]
+line-number = "absolute"
+mouse = true
+middle-click-paste = false
+cursorline = true
+auto-format = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
