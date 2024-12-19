@@ -1,5 +1,6 @@
 theme = "material_darker"
 
+# Basic configuration
 [editor]
 line-number = "absolute"
 mouse = true
@@ -7,11 +8,36 @@ middle-click-paste = false
 cursorline = true
 auto-format = false
 
+# Cursor
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
 
+# Does not hide hidden files
 [editor.file-picker]
 hidden = false
+git-ignore = true
 
+# White space characters
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+nbsp = "⍽"
+nnbsp = "␣"
+tab = "→"
+newline = "⏎"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+
+# Enabling line wrapping
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = ""  # set wrap-indicator to "" to hide it
